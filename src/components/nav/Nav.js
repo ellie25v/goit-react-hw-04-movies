@@ -1,21 +1,26 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import styles from './nav.module.css'
 
 const Nav = () => (
-    <div>
-        <ul>
-            <li>
-                <NavLink exact to='/'>
+    <nav className={styles.nav}>
+        <ul className={styles.navList}>
+            <li className={styles.navListItem}>
+                <NavLink className={styles.link}
+                activeClassName={styles.activeLink}
+                 exact to='/'>
                     Home
                 </NavLink>
             </li>
-            <li>
-                <NavLink to='/movies'>
+            <li className={styles.navListItem}>
+                <NavLink className={styles.link}
+                activeClassName={styles.activeLink}
+                to='/movies'>
                   Movies
                 </NavLink>
             </li>
         </ul>
-    </div>
+    </nav>
 );
 
 export default Nav;

@@ -1,0 +1,22 @@
+.nav{
+    margin: 0;
+    height: 40px;
+    box-shadow: 0 2px 3px grey;
+}
+.navList{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.navListItem{
+    padding-right: 10px;
+}
+.link{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+.activeLink{
+    color: red;
+}

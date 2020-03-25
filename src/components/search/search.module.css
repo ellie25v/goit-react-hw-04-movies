@@ -1,0 +1,9 @@
+.input,
+.btn{
+    padding: 4px;
+    margin-top: 10px;
+}
+.input{
+    padding-right: 100px;
+    margin-left: 10px;
+}

@@ -21,6 +21,7 @@ class HomePage extends Component {
   }
   render() {
     const { movies, isLoading, error } = this.state;
+    const { location } = this.props;
     return (
       <>
         <h2>Trending today</h2>
@@ -33,7 +34,8 @@ class HomePage extends Component {
                 movies.map(movie => <li key={movie.id}><Link to={{
                     pathname: `movies/${movie.id}`,
                     state: {
-                      id: movie.id
+                      id: movie.id,
+                      from: location
                     }
                 }} >
                     {movie.original_title || movie.name}</Link></li>)

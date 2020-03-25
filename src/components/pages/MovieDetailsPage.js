@@ -3,7 +3,7 @@ import services from '../services'
 import {Link, Switch, Route,} from 'react-router-dom'
 import Cast from '../cast/Cast'
 import Reviews from '../reviews/Reviews'
-// import queryString from 'query-string'
+import styles from './pages.module.css'
 
 class MovieDetailsPage extends Component {
     state = { 
@@ -36,14 +36,20 @@ class MovieDetailsPage extends Component {
             <button
                 type="button"
                 className={styles.button}
-                onClick={this.handleBack}>Go back</button>
-           <img src={`${imgUrl}` + `${poster_path}`} alt='img' />
-           <h2>{title || name}</h2>
-            <p>User Score: <span>{Math.floor(vote_average/10*100)}%</span></p>
-            <h4>Overview</h4>
-            <p>{overview}</p>
-            <h4>Genres</h4>
-            <p>{genres.map(genre => <span>{genre.name}  </span>)}</p>
+                onClick={this.handleBack}>
+                    Go back</button>
+            <div className={styles.details}>
+                <img  src={`${imgUrl}` + `${poster_path}`} alt='img' />
+                <div className={styles.detailsText}>
+                <h2>{title || name}</h2>
+                <p>User Score: <span>{Math.floor(vote_average/10*100)}%</span></p>
+                <h4>Overview</h4>
+                <p>{overview}</p>
+                <h4>Genres</h4>
+                <p>{genres.map(genre => <span>{genre.name}  </span>)}</p>
+            </div>
+            </div>
+            <div className={styles.add}>
             <p>Additional info</p>
 
             <Link to={{pathname:`/movies/${id}/cast`, state: { id }}}><p>Cast</p></Link>
@@ -53,6 +59,7 @@ class MovieDetailsPage extends Component {
                 <Route exact path={`/movies/${id}/cast`} component={Cast} />
                 <Route exact path={`/movies/${id}/reviews`} component={Reviews} />
             </Switch>
+            </div>
            </>
         );
     }

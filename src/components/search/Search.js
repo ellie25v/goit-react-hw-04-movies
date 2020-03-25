@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from './search.module.css'
 
 export default class Search extends Component {
   state = {
@@ -22,11 +23,13 @@ export default class Search extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input
+        className={styles.input}
           type="text"
           value={input}
           placeholder="Search movies..."
           onChange={this.handleChange}
         />
+        <button className={styles.btn} onClick={this.handleSubmit}>Search</button>
       </form>
     );
   }
