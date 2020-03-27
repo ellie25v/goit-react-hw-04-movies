@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import services from '../services'
 import Loader from "react-loader-spinner";
 import Search from '../search/Search'
+import queryString from 'query-string'
 
 class MoviesPage extends Component {
     state = {
@@ -10,6 +11,24 @@ class MoviesPage extends Component {
         isLoading: false,
         error: null
       };
+      componentDidMount() {
+        console.log('this.props', this.props)
+        const { location } = this.props;
+          console.log('this.props.location.search', this.props.location.search)
+        let parseSearchQuery = queryString.parse(location.search).query;
+        console.log('parseSearchQuery', parseSearchQuery)
+      
+         if(parseSearchQuery){
+
+          services
+          .getMovieQuery(parseSearchQuery)
+           .then(({ data }) => {
+              this.setState({ movies: data.results });
+            })
+          
+
+        }
+      }
 
     onSearch = query => {
         this.props.history.push({

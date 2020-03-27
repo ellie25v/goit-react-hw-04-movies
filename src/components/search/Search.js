@@ -6,6 +6,8 @@ export default class Search extends Component {
     input: ""
   };
 
+  
+
   handleChange = e => {
     this.setState({ input: e.target.value });
   };
